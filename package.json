@@ -1,0 +1,47 @@
+{
+  "name": "deploy",
+  "version": "1.0.0",
+  "license": "ISC",
+  "engines": {
+    "node": ">=22.18.0 <23",
+    "npm": ">=11.5.2 <12"
+  },
+  "scripts": {
+    "prepare": "husky install || true"
+  },
+  "lint-staged": {
+    "**/*.{js,mjs,cjs,jsx,ts,tsx,html,css,scss,json}": "prettier --write"
+  },
+  "workspaces": [
+    "/services/*"
+  ],
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@tanstack/eslint-plugin-query": "^5.91.2",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
+		"supertest": "^7.0.0",
+		"ts-jest": "^29.2.5",
+		"prettier": "^3.4.2",
+    "eslint": "^9.39.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "typescript-eslint": "^8.46.2",
+		"@nestjs/testing": "^11.0.1",
+		"@types/jest": "^30.0.0",
+		"@types/supertest": "^6.0.2",
+		"jest": "^30.0.0"
+	},
+  "homepage": "https://github.com/Edmorton1/SiteForRhytmGameRebuild#readme",
+  "bugs": {
+    "url": "https://github.com/Edmorton1/SiteForRhytmGameRebuild/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Edmorton1/SiteForRhytmGameRebuild.git"
+  }
+}
