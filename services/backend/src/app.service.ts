@@ -4,6 +4,6 @@ import {micropenis} from '../shared/asdasd';
 @Injectable()
 export class AppService {
 	getHello(): string {
-		return `DFdghF ${micropenis}`;
+		return `ВАывsdf ${micropenis}`;
 	}
 }

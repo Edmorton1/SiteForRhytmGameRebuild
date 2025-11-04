@@ -1,3 +1,6 @@
+# Комманды
+# docker-compose up -d --build - Пересобрать и перезапустить контейнер
+
 version: "3.9"
 
 services:
@@ -5,9 +8,9 @@ services:
   frontend:
     build:
       context: .
-      dockerfile: ./services/frontend/Dockerfile
+      dockerfile: /services/frontend/Dockerfile
     volumes:
-      - ./services/frontend:/app
+      - ./services/frontend/src:/app/src
       - ./shared:/app/shared
       - /app/node_modules
     ports:
@@ -19,10 +22,12 @@ services:
   backend:
     build:
       context: .
-      dockerfile: ./services/backend/Dockerfile
+      dockerfile: /services/backend/Dockerfile
     volumes:
       - ./services/backend/src:/app/src
       - ./shared:/app/shared
       - /app/node_modules
     ports:
       - '3000:3000'
+    env_file:
+      - ./services/backend/.env

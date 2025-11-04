@@ -3,18 +3,23 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-		"watch": "tsc --noEmit --watch",
-		"lint": "npx eslint . --fix",
+    "watch": "tsc --noEmit --watch",
+    "lint": "npx eslint . --fix",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-		"test": "jest",
-		"test:watch": "jest --watch",
-		"test:cov": "jest --coverage"
-	},
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage"
+  },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "@tanstack/react-query": "^5.90.6",
+    "i18next": "^25.6.0",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "react-hook-form": "^7.66.0",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@types/node": "^24.6.0",
