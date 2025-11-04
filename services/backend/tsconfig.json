@@ -1,6 +1,6 @@
 {
   //  Было раньше в package.json "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-  "extends": "../../tsconfig.base.json",
+  "extends": "./tsconfig.base.json",
 
   "compilerOptions": {
     "module": "nodenext",

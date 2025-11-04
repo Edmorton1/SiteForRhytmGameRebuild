@@ -1,24 +1,32 @@
+# Temple folders
 node_modules
 **/node_modules
 dist
 **/dist
+
+# Git
 .git
-
-eslint.config.js
-eslint.config.mjs
-eslint.config.cjs
-
-babel.config.js
-.prettierrc
-.prettierignore
 .gitignore
 
+# Linter
+.prettierignore
+.prettierrc
+shared/eslint/base.eslint.config.js
+eslint.config.js
+.eslintrc.json
+
+# Tests
+jest.config.js
+jest.e2e.js
+*test*
+*spec*
+*__test__*/
+*__spec__*/
+*__e2e__*/
 **/*.spec.ts
 **/*.spec.tsx
 **/__spec__/
-
 **/*.test.ts
 **/*.test.tsx
 **/__test__/
-
 **/__e2e__/

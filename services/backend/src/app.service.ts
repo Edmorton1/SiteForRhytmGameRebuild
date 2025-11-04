@@ -1,8 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import {Injectable} from '@nestjs/common';
+import {micropenis} from '../shared/asdasd';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
-  }
+	getHello(): string {
+		return `DFdghF ${micropenis}`;
+	}
 }

@@ -5,6 +5,6 @@ module.exports = {
 	testEnvironment: 'node',
 	testMatch: ['**/__e2e__/**/*.e2e-test.ts'],
 	transform: {
-		'^.+\\.(t|j)s$': 'ts-jest',
-	},
+		'^.+\\.(t|j)s$': 'ts-jest'
+	}
 };

@@ -47,5 +47,22 @@
 		// "noUncheckedSideEffectImports": true,
 		// "noEmit": true
 	},
-	"exclude": ["node_modules", "dist", ".jest-cache"]
+
+	"exclude": [
+		"node_modules",
+		"dist",
+		".jest-cache",
+		"**/*.spec.ts",
+		"**/*.spec.tsx",
+		"**/*.test.ts",
+		"**/*.test.tsx",
+		"**/__test__",
+		"**/__spec__",
+		"**/__e2e__"
+	],
+
+	"include": [
+		"src",
+		"shared"
+	]
 }
