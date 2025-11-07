@@ -1,12 +1,12 @@
 {
 	"compilerOptions": {
-		"resolveJsonModule": true,
-		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true,
-		"isolatedModules": true,
-		"importsNotUsedAsValues": "remove",
-		"downlevelIteration": true,
-		"useDefineForClassFields": true,
+		// "resolveJsonModule": true,
+		// "esModuleInterop": true,
+		// "allowSyntheticDefaultImports": true,
+		// "isolatedModules": true,
+		// "importsNotUsedAsValues": "remove",
+		// "downlevelIteration": true,
+		// "useDefineForClassFields": true,
 
 		// Type Checking
 		"strict": true,
@@ -40,8 +40,8 @@
 		// "verbatimModuleSyntax": true,
 
 		// Decorators
-		 "experimentalDecorators": true,
-		 "emitDecoratorMetadata": true,
+		// "experimentalDecorators": true,
+		// "emitDecoratorMetadata": true,
 
 		// Side Effects
 		// "noUncheckedSideEffectImports": true,
