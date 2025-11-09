@@ -19,6 +19,7 @@ const baseEslintConfig = {
 		globals: {...globals.jest}
 	},
 	rules: {
+		camelcase: 'error'
 		// "no-warning-comments": [
 		// 	"warn",
 		// 	{ terms: ["TODO", "FIXME"], location: "start" },

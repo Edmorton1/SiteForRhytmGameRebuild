@@ -12,9 +12,7 @@
 	"lint-staged": {
 		"**/*.{js,mjs,cjs,jsx,ts,tsx,html,css,scss,json}": "prettier --write"
 	},
-	"workspaces": [
-		"/services/*"
-	],
+
 	"devDependencies": {
 		"@eslint/js": "^9.39.0",
 		"@nestjs/testing": "^11.0.1",
@@ -45,9 +43,5 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/Edmorton1/SiteForRhytmGameRebuild.git"
-	},
-	"dependencies": {
-		"class-transformer": "^0.5.1",
-		"class-validator": "^0.14.2"
 	}
 }

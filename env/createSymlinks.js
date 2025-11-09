@@ -62,6 +62,15 @@ const services = fs.readdirSync(pathDirServices, {withFileTypes: true}).flatMap(
 	return files;
 });
 
+// TODO: Хардкод убрать
+services.push({
+	source: path.resolve(pathDirConfig, 'tsconfig.base.json'),
+	target: path.resolve(pathDirShared, 'tsconfig.base.json'),
+	type: 'file'
+})
+
+console.log(services);
+
 services.forEach((file) => {
 	const {type, source, target} = file;
 

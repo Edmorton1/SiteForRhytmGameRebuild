@@ -22,8 +22,8 @@
 		"noPropertyAccessFromIndexSignature": false,
 
 		// Unused Code
-		 "noUnusedLocals": true,
-		 "noUnusedParameters": true,
+		// "noUnusedLocals": true,
+		// "noUnusedParameters": true,
 
 		// Output Options
 		// "skipLibCheck": true,
@@ -40,8 +40,9 @@
 		// "verbatimModuleSyntax": true,
 
 		// Decorators
-		// "experimentalDecorators": true,
-		// "emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"strictPropertyInitialization": false,
 
 		// Side Effects
 		// "noUncheckedSideEffectImports": true,

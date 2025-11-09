@@ -1,0 +1,1 @@
+F:/Programming/JavaScript/SiteForRhytmGameRebuild/env/configs/backend/jest.config.js

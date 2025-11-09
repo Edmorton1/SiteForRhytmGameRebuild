@@ -12,15 +12,7 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage"
   },
-  "dependencies": {
-    "@hookform/resolvers": "^5.2.2",
-    "@tanstack/react-query": "^5.90.6",
-    "i18next": "^25.6.0",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "react-hook-form": "^7.66.0",
-    "zustand": "^5.0.8"
-  },
+
   "devDependencies": {
     "@types/node": "^24.6.0",
     "@types/react": "^19.1.16",
@@ -28,5 +20,15 @@
     "@vitejs/plugin-react": "^5.0.4",
     "typescript": "~5.9.3",
     "vite": "^7.1.7"
-  }
+  },
+
+	"dependencies": {
+		"@hookform/resolvers": "^5.2.2",
+		"@tanstack/react-query": "^5.90.6",
+		"i18next": "^25.6.0",
+		"react": "^19.1.1",
+		"react-dom": "^19.1.1",
+		"react-hook-form": "^7.66.0",
+		"zustand": "^5.0.8"
+	}
 }
