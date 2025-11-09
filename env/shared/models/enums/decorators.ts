@@ -1,9 +1,11 @@
 import {IsPositive, IsInt, IsArray, IsIn, ArrayNotEmpty, IsNumber, ArrayUnique} from 'class-validator';
 import {Transform} from "class-transformer";
+import {ApiProperty} from '@nestjs/swagger';
 
 export const IsId = () => {
 	return (target: object, propertyName: string) => {
     // Type(() => Number)(target, propertyName)
+		ApiProperty({example: 1})(target, propertyName)
 		IsNumber()(target, propertyName)
 		IsInt()(target, propertyName);
 		IsPositive()(target, propertyName);
@@ -20,5 +22,8 @@ export const IsEnumArray = (array: readonly string[]) => {
 }
 
 export const TransformDefault = (defaultValue: any) => {
-  return Transform(({value}) => value === undefined ? defaultValue : value)
+  return (target: object, propertyName: string) => {
+		ApiProperty({example: defaultValue})
+		Transform(({value}) => value === undefined ? defaultValue : value)(target, propertyName)
+	}
 }

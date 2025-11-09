@@ -1,11 +1,11 @@
-import { countries, languages, TCountries, TLanguages } from 'countries-list';
+import { countries, languages, type TCountries, type TLanguages } from 'countries-list';
 
 export const countriesList = Object.entries(countries).map(([code, info]) => ({
 	code,
 	name: info.name,
 }));
 
-const countryCodes = Object.keys(countries) as (keyof TCountries)[];
+export const countryCodes = Object.keys(countries) as (keyof TCountries)[];
 export type CountryCode = (typeof languagesCodes)[number];
 
 export const languagesList = Object.entries(languages).map(([code, info]) => ({
