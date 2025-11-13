@@ -1,3 +1,6 @@
+node_modules/
+cloudkeys.txt
+envClient.ts
 .jest-cache
 
 # Logs

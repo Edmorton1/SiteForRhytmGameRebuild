@@ -1,8 +1,0 @@
-cd F:\Programming\JavaScript\SiteForRhytmGameRebuild
-F:
-mklink .\services\backend\tsconfig.base.json ..\..\tsconfig.base.json
-mklink .\services\backend\.dockerignore ..\..\dockerignore
-mklink .\services\frontend\shared .\shared
-
-mklink /D F:\Programming\JavaScript\SiteForRhytmGameRebuild\services\backend\shared F:\Programming\JavaScript\SiteForRhytmGameRebuild\shared
-mklink /D F:\Programming\JavaScript\SiteForRhytmGameRebuild\services\frontend\shared F:\Programming\JavaScript\SiteForRhytmGameRebuild\shared

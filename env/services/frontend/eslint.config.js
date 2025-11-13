@@ -1,1 +1,0 @@
-F:/Programming/JavaScript/SiteForRhytmGameRebuild/env/configs/frontend/eslint.config.js
