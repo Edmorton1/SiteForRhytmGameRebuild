@@ -2,7 +2,7 @@
 	"name": "deploy",
 	"version": "1.0.0",
 	"license": "ISC",
-	"type": "module",
+	"type": "commonjs",
 	"homepage": "https://github.com/Edmorton1/SiteForRhytmGameRebuild#readme",
 	"bugs": {
 		"url": "https://github.com/Edmorton1/SiteForRhytmGameRebuild/issues"

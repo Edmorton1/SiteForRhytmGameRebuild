@@ -1,8 +1,6 @@
-//@ts-check
-
 const globals = require('globals');
 const {defineConfig} = require('eslint/config');
-const baseEslintConfig = require('../base.eslint.config').default;
+const {baseEslintConfig} = require('../base.eslint.config');
 
 module.exports = defineConfig({
 	extends: [...baseEslintConfig.extends],

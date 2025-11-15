@@ -1,7 +1,7 @@
-import js from '@eslint/js';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
-import eslintConfigPrettier from "eslint-config-prettier/flat"
-import {globalIgnores} from 'eslint/config';
+const js = require('@eslint/js');
+const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
+const eslintConfigPrettier = require('eslint-config-prettier/flat');
+const {globalIgnores} = require('eslint/config');
 
 const baseEslintConfig = {
 	extends: [
@@ -12,7 +12,7 @@ const baseEslintConfig = {
 	],
 	files: ['**/*.{js,mjs,cjs,jsx}'],
 	languageOptions: {
-		ecmaVersion: 'latest',
+		ecmaVersion: 'latest'
 	},
 	rules: {
 		camelcase: 'error'
@@ -23,4 +23,4 @@ const baseEslintConfig = {
 	}
 };
 
-export default baseEslintConfig
+module.exports = {baseEslintConfig};
