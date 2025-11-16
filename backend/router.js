@@ -1,12 +1,14 @@
 const {Router} = require('express');
 const {serverPaths} = require('../shared/common/PATHS');
-const {AuthController} = require('./routes/auth/auth.service');
+const {loginController} = require('./routes/login/login.controller');
+const {logoutController} = require('./routes/logout/logout.controller');
+const {initController} = require('./routes/init/init.controller');
+const {asyncHandle} = require('./middlewares/errors/error.middleware');
 
 const router = Router();
 
-// router.get(serverPaths.registration);
-router.post(serverPaths.login, AuthController.login);
-router.delete(serverPaths.logout, AuthController.logout);
-router.get(serverPaths.init, AuthController.init);
+router.post(serverPaths.login, asyncHandle(loginController));
+router.delete(serverPaths.logout, asyncHandle(logoutController));
+router.get(serverPaths.init, asyncHandle(initController));
 
 module.exports = router;

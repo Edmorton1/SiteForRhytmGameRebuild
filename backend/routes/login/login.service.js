@@ -1,15 +1,18 @@
 const bcrypt = require('bcrypt');
+const {HttpError} = require('../../http.error');
+const {getProfileById} = require('../_shared/shared.repository');
+const {getPassword} = require('./login.repository');
 
 module.exports = {
 	async loginService(userDto) {
-		const {password, ...payload} = await this.authRepository.getPassword(userDto.email);
+		const {password, ...payload} = await getPassword(userDto.email);
 		const isPasswordCorrect = await bcrypt.compare(userDto.password, password);
 
 		if (!isPasswordCorrect) {
-			throw new HttpError(401, authErrors.INCORRECT_PASSWORD);
+			throw new HttpError(401, 'Password is incorrect');
 		}
 
-		const profile = await this.authRepository.getProfileById(payload.id);
+		const profile = await getProfileById(payload.id);
 		return {payload, profile};
 	}
 };
