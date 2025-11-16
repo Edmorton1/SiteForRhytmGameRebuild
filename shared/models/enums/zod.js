@@ -1,18 +1,24 @@
 const z = require('zod');
 
-const zId = z.coerce.number().int().positive();
-const zIntNum = z.coerce.number().int();
-const zISOString = z.coerce.date().transform(d => d.toISOString());
-const toArrayPreprocess = (schema) =>
-	z.preprocess(val => {
-		if (Array.isArray(val)) return val;
-		return [val];
-	}, z.array(schema));
-
 module.exports = {
-	zId,
-	zIntNum,
-	zISOString,
-	toArrayPreprocess
-};
+	zId: z.coerce.number().int().positive(),
 
+	zIntNum: z.coerce.number().int(),
+
+	zISOString: z.coerce.date().transform((d) => d.toISOString()),
+
+	toArrayPreprocess: (schema) => z.preprocess((val) => (Array.isArray(val) ? val : [val]), z.array(schema)),
+
+	zExpressMulterFile: z.custom((file) => {
+		return (
+			file &&
+			typeof file === 'object' &&
+			typeof file.fieldname === 'string' &&
+			typeof file.originalname === 'string' &&
+			typeof file.encoding === 'string' &&
+			typeof file.mimetype === 'string' &&
+			file.buffer instanceof Buffer &&
+			typeof file.size === 'number'
+		);
+	}, 'Is not Express.Multer.File')
+};

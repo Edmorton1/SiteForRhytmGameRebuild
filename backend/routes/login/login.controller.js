@@ -4,6 +4,10 @@ const {LoginDTOZodSchema} = require('../../../shared/models/schemas/auth');
 const {logger} = require('../../connections/logger/logger');
 
 module.exports = {
+	/**
+	 * @param {import('express').Request} req
+	 * @param {import ('express').Response} res
+	 * */
 	async loginController(req, res) {
 		const userDto = zodValidateSchema(LoginDTOZodSchema, req.body);
 

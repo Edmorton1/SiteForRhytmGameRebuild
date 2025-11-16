@@ -9,18 +9,23 @@ const ProfileZodSchema = z.object({
 	avatar: z.string().nullable(),
 	about: z.string().max(512),
 	country_code: zCountryCode,
-	created_at: zISOString,
-});
-
-const UserProfileZodSchemaClient = ProfileZodSchema.pick({
-	id: true,
-	name: true,
-	avatar: true,
-	country_code: true,
+	created_at: zISOString
 });
 
 module.exports = {
 	ProfileZodSchema,
-	UserProfileZodSchemaClient
-};
 
+	ProfileDTOZodSchema: ProfileZodSchema.pick({
+		name: true,
+		about: true,
+		about: true,
+		country_code: true
+	}),
+
+	UserProfileZodSchemaClient: ProfileZodSchema.pick({
+		id: true,
+		name: true,
+		avatar: true,
+		country_code: true
+	})
+};

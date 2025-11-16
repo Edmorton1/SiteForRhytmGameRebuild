@@ -2,6 +2,10 @@ const {getEnv} = require('../../getEnv');
 const {logger} = require('../../connections/logger/logger');
 
 module.exports = {
+	/**
+	 * @param {import('express').Request} req
+	 * @param {import ('express').Response} res
+	 * */
 	logoutController(req, res) {
 		logger.debug('REQUEST_LOGOUT');
 

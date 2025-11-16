@@ -2,6 +2,10 @@ const {logger} = require('../../connections/logger/logger');
 const {getProfileById} = require('../_shared/shared.repository');
 
 module.exports = {
+	/**
+	 * @param {import('express').Request} req
+	 * @param {import ('express').Response} res
+	 * */
 	async initController(req, res) {
 		if (!req.session.payload) {
 			logger.debug('REQUEST_INIT');
