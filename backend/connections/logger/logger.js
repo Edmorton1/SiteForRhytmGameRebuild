@@ -6,28 +6,28 @@ const {NotConnectedError} = require('../../errors');
 let _logger = null;
 
 module.exports = {
-	connect() {
-		_logger = pino({
-			level: 'debug',
-			transport:
-				getEnv('NODE_ENV') === NODE_ENV.development
-					? {
-							target: 'pino-pretty',
-							options: {colorize: true}
-						}
-					: undefined
-		});
-		_logger.info('PINO CONNECT');
-	},
+  connect() {
+    _logger = pino({
+      level: 'debug',
+      transport:
+        getEnv('NODE_ENV') === NODE_ENV.development
+          ? {
+              target: 'pino-pretty',
+              options: {colorize: true}
+            }
+          : undefined
+    });
+    _logger.info('PINO CONNECT');
+  },
 
-	get logger() {
-		if (!_logger) {
-			throw new NotConnectedError('pino(logger)');
-		}
-		return _logger;
-	},
+  get logger() {
+    if (!_logger) {
+      throw new NotConnectedError('pino(logger)');
+    }
+    return _logger;
+  },
 
-	disconnect() {
-		this.logger.flush();
-	}
+  disconnect() {
+    this.logger.flush();
+  }
 };

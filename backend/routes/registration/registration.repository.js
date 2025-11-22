@@ -1,61 +1,58 @@
 const bcrypt = require('bcrypt');
-const {pg} = require('../../connections/postgres/postgres');
+const {pg} = require('../../connections');
 const {randomUUID} = require('crypto');
 
-/** @param {import('./registration.controller').RegistrationDto} authDto */
-async function registration(authDto, insertUser) {
-	const avatar = authDto.avatar ? await uploadAvatar(authDto.avatar) : null;
+async function registration({profileDto, avatar, createUserFunc}) {
+  const uploadedAvatar = avatar ? await uploadAvatar(avatar) : null;
 
-	return pg.transaction(async (trx) => {
-		console.log(authDto);
-		const Payload = await insertUser(trx, authDto.user);
-		console.log('ПАЙЛОАД');
+  return pg.transaction(async (trx) => {
+    const {id} = await createUserFunc(trx);
 
-		const profile = await trx('profiles')
-			.insert({...authDto.profile, id: Payload.id, avatar})
-			.returning('*')
-			.first();
+    const [profile] = await trx('profiles')
+      .insert({...profileDto, id, avatar: uploadedAvatar})
+      .returning('*');
 
-		return profile;
-	});
+    return profile;
+  });
 }
 
 async function uploadAvatar(avatar) {
-	// TODO: Mocking upload avatar
-	return randomUUID();
+  // TODO: Mocking upload avatar
+  return randomUUID();
 }
 
-/** @param {import('knex').Knex.Transaction} trx */
 async function insertUser(trx, value) {
-	const userRoleId = await trx('users').insert(value).returning(['id', 'role']).first();
-	return userRoleId;
+  console.log({trx, value});
+  const [user] = await trx('users').insert(value).returning(['id', 'role']);
+  return user;
 }
 
-/** @param {import('knex').Knex.Transaction} trx */
 async function createUser(trx, userDto) {
-	// TODO: set many salt
-	const hashPassword = await bcrypt.hash(userDto.password, 3);
-	return await insertUser(trx, {
-		...userDto,
-		password: hashPassword
-	});
+  const {password} = userDto;
+
+  // TODO: set many salt
+  const hashPassword = await bcrypt.hash(password, 3);
+
+  return await insertUser(trx, {
+    ...userDto,
+    password: hashPassword
+  });
 }
 
 module.exports = {
-	async registrationEmail(authDTO) {
-		return registration(authDTO, (trx) => createUser(trx, authDTO.user));
-	},
+  async registrationEmail({userDto, profileDto, avatar}) {
+    return registration({profileDto, avatar, createUserFunc: (trx) => createUser(trx, userDto)});
+  },
 
-	async registrationProvider(profileDTO, provider) {
-		return registration(profileDTO, (trx) => insertUser(trx, {provider_id: provider.id, email: provider.email}));
-	},
+  async registrationProvider(profileDto, provider) {
+    return registration(profileDto, (trx) => insertUser(trx, {provider_id: provider.id, email: provider.email}));
+  },
 
-	async isInDB(table, column, value) {
-		// const result = pg(table).where(column, value).first().select(pg.raw('EXISTS(SELECT 1) as exists'));
-		const {
-			rows: [{exists}]
-		} = await pg.raw(`SELECT EXISTS(SELECT 1 FROM ?? WHERE ?? = ?) AS "exists"`, [table, column, value]);
+  async isInDB(table, column, value) {
+    const {
+      rows: [{exists}]
+    } = await pg.raw(`SELECT EXISTS(SELECT 1 FROM ?? WHERE ?? = ?) AS "exists"`, [table, column, value]);
 
-		return exists;
-	}
+    return exists;
+  }
 };

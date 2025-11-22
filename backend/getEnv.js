@@ -25,38 +25,38 @@ dotenv.config();
  */
 
 const validateEnv = (value, param) => {
-	isString(value, param);
-	if (param === 'NODE_ENV') {
-		isMode(value);
-	}
+  isString(value, param);
+  if (param === 'NODE_ENV') {
+    isMode(value);
+  }
 };
 
 const isString = (value, param) => {
-	if (typeof value !== 'string') {
-		throw new Error(`Specify a required parameter ${param}`);
-	}
+  if (typeof value !== 'string') {
+    throw new Error(`Specify a required parameter ${param}`);
+  }
 };
 
 const NODE_ENV = {
-	production: 'production',
-	development: 'development'
+  production: 'production',
+  development: 'development'
 };
 
 const isMode = (value) => {
-	if (value !== NODE_ENV.production && value !== NODE_ENV.development) {
-		throw new Error(`NODE_ENV should be ${NODE_ENV.production} or ${NODE_ENV.development}. Now this - ${value}`);
-	}
+  if (value !== NODE_ENV.production && value !== NODE_ENV.development) {
+    throw new Error(`NODE_ENV should be ${NODE_ENV.production} or ${NODE_ENV.development}. Now this - ${value}`);
+  }
 };
 
 module.exports = {
-	/**
-	 * @param {EnvKey} param
-	 * @returns {string}
-	 */
-	getEnv(param) {
-		const value = process.env[param];
-		validateEnv(value, param);
-		return value;
-	},
-	NODE_ENV
+  /**
+   * @param {EnvKey} param
+   * @returns {string}
+   */
+  getEnv(param) {
+    const value = process.env[param];
+    validateEnv(value, param);
+    return value;
+  },
+  NODE_ENV
 };

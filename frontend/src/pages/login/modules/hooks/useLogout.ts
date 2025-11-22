@@ -1,0 +1,22 @@
+import { useMutation } from '@tanstack/react-query';
+import { PROFILE } from '../../../../common/consts/QUERY_KEYS';
+import { serverPaths } from '../../../../../../../libs/common/PATHS';
+import { queryClient } from '../../../../app/queryClient';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { clientPaths } from '../../../../common/consts/PATHS';
+
+const deleteLogout = async () => axios.delete(_URL_SERVER + serverPaths.logout);
+
+export const useLogout = () => {
+	const navigate = useNavigate();
+
+	return useMutation({
+		mutationKey: [PROFILE],
+		mutationFn: deleteLogout,
+		onSuccess: () => {
+			queryClient.setQueryData([PROFILE], null);
+			navigate(clientPaths.login);
+		},
+	});
+};

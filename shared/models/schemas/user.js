@@ -18,7 +18,7 @@ const UserZodSchema = z.object({
 	banned: z.boolean().default(false)
 });
 
-const UserDTOZodSchema = UserZodSchema.pick({
+const UserDtoZodSchema = UserZodSchema.pick({
 	email: true,
 	password: true
 });
@@ -27,5 +27,5 @@ module.exports = {
 	rolesZodSchema,
 	zEmailPassword,
 	UserZodSchema,
-	UserDTOZodSchema
+	UserDtoZodSchema
 };

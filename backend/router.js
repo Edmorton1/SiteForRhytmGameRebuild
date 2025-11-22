@@ -1,10 +1,7 @@
 const {Router} = require('express');
 const {serverPaths} = require('../shared/common/PATHS');
-const {loginController} = require('./routes/login/login.controller');
-const {logoutController} = require('./routes/logout/logout.controller');
-const {initController} = require('./routes/init/init.controller');
-const {asyncHandle} = require('./middlewares/errors/error.middleware');
-const {registrationController} = require('./routes/registration/registration.controller');
+const {loginController, logoutController, initController, registrationController} = require('./routes');
+const {asyncHandle} = require('./middlewares/error.middleware');
 const multer = require('multer');
 
 const router = Router();

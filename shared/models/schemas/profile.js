@@ -5,7 +5,7 @@ const {zCountryCode} = require('../enums/countries');
 const ProfileZodSchema = z.object({
 	id: zId,
 	name: z.string().max(32).nonempty(),
-	// У Client и Server будут свои DTO's
+	// У Client и Server будут свои Dto's
 	avatar: z.string().nullable(),
 	about: z.string().max(512),
 	country_code: zCountryCode,
@@ -15,7 +15,7 @@ const ProfileZodSchema = z.object({
 module.exports = {
 	ProfileZodSchema,
 
-	ProfileDTOZodSchema: ProfileZodSchema.pick({
+	ProfileDtoZodSchema: ProfileZodSchema.pick({
 		name: true,
 		about: true,
 		about: true,

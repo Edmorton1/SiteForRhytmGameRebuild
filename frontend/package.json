@@ -1,25 +1,38 @@
 {
-  "name": "frontend",
-  "private": true,
-  "version": "1.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint  --fix",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^5.1.0",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.4.24",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "@tanstack/eslint-plugin-query": "^5.91.2",
-    "vite": "^7.2.2"
-  }
+	"name": "frontend",
+	"private": true,
+	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"lint": "eslint  --fix",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-react": "^5.1.0",
+		"eslint-plugin-react-hooks": "^7.0.1",
+		"eslint-plugin-react-refresh": "^0.4.24",
+		"eslint-plugin-react": "^7.37.5",
+		"eslint-plugin-jsx-a11y": "^6.10.2",
+		"@tanstack/eslint-plugin-query": "^5.91.2",
+		"@tanstack/react-query-devtools": "^5.85.5",
+		"vite": "^7.2.2"
+	},
+	"dependencies": {
+		"react": "^19.2.0",
+		"react-dom": "^19.2.0",
+		"@hookform/resolvers": "^5.2.1",
+		"@tanstack/react-query": "^5.85.5",
+		"axios": "^1.11.0",
+		"i18next": "^25.3.6",
+		"i18next-browser-languagedetector": "^8.2.0",
+		"i18next-http-backend": "^3.0.2",
+		"react-hook-form": "^7.62.0",
+		"react-i18next": "^15.6.1",
+		"react-router-dom": "^7.7.1",
+		"zustand": "^5.0.8",
+		"@mui/icons-material": "^7.3.2",
+		"@mui/material": "^7.3.2"
+	}
 }

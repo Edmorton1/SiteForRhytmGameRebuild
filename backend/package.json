@@ -5,7 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
+    "dev": "npx nodemon index.js",
     "lint": "eslint . --fix"
   },
   "dependencies": {
@@ -21,7 +21,8 @@
     "pino": "^10.1.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1",
-    "pino-pretty": "^13.1.2"
+    "nodemon": "^3.1.11",
+    "pino-pretty": "^13.1.2",
+    "supertest": "^7.1.4"
   }
 }

@@ -3,5 +3,8 @@ import react from '@vitejs/plugin-react';
 
 // https://vite.dev/config/
 export default defineConfig({
-	plugins: [react()]
+	plugins: [react()],
+	// define: {
+	// 	_URL_SERVER: JSON.stringify(url_client + SERVER_PREFIX)
+	// }
 });
